@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   get '/health', to: 'health#health'
   resources :posts, only:[:index, :show, :create, :update]
+  get '/login', to: 'auth#login'
 end
