@@ -1,0 +1,23 @@
+---
+en:
+  activerecord:
+    models:
+      category:
+        one: Categoría
+        others: Categorías
+      task:
+        one: Tarea
+        others: Tareas
+  categories:
+    form:
+      description: Description
+      name: Name
+    new_category: Nueva Categoria
+  common:
+    back: Atrás
+  hello: Hello world
+  tasks:
+    form:
+      category: Category
+      description: Description
+      name: Name
