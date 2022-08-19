@@ -2,10 +2,10 @@ class PostsController < ApplicationController
 
 before_action :authenticate_user!, only: [:create, :update]
 
-    #rescue_from Exception do |e|
+    rescue_from Exception do |e|
         #log.error "#{e.message}"
-        #render json: {error: e.message }, status: :internal_error
-    #end
+        render json: {error: e.message }, status: :internal_error
+    end
 
     rescue_from ActiveRecord::RecordInvalid do |e|
         render json: { error: e.message }, status: :unprocessable_entity
@@ -27,11 +27,11 @@ before_action :authenticate_user!, only: [:create, :update]
             render json: @post, status: :ok
         else
             render json: {error: 'Not Found'}, status: :not_found
-        end    
+        end
     end
 
     #POST /posts
-    def create        
+    def create
         @post = Current.user.posts.create!(create_params)
         render json: @post, status: :created
     end
@@ -65,10 +65,9 @@ before_action :authenticate_user!, only: [:create, :update]
             #truthy falsy
             #Current funcionalidad desde rails 5 para persistir modelos
             if (Current.user = User.find_by_auth_token(token))
-                return 
+                return
             end
         end
         render json: {error: 'Unauthorized'}, status: :unauthorized
-    end 
+    end
 end
-

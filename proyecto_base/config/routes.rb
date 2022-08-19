@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   get '/health', to: 'health#health'
   resources :posts, only:[:index, :show, :create, :update]
   get '/login', to: 'auth#login'
+
+  post '/ciclo', to: 'test#_recorer_objeto'
+
 end

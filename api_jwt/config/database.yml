@@ -17,19 +17,19 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: 192.168.1.70
+  host: 192.168.1.81
   username: ubuntu
   password: 1994
   port: 5432
-  database: api_jwt_devepoment
+  database: test_jwts
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: api_jwt_development
-  host: 192.168.1.70
+  database: test_jwts
+  host: 192.168.1.81
   username: ubuntu
   password: 1994
   port: 5432
@@ -67,7 +67,7 @@ development:
 test:
   <<: *default
   database: api_jwt_test
-  host: 192.168.1.70
+  host: 192.168.1.81
   username: ubuntu
   password: 1994
   port: 5432
@@ -95,7 +95,7 @@ test:
 production:
   <<: *default
   database: api_jwt_production
-  host: 192.168.1.70
+  host: 192.168.1.81
   username: ubuntu
   password: 1994
   port: 5432
